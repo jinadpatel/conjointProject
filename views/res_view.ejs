@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>Explore new places</title>
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+<style>
+<style type="text/css">
+        body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+    </style>
+</style>
+
+    </head>
+    
+    <body style="background:Bisque">
+        <nav class="black" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo">See/Post Your Reviews</a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <% if (user.local.email) { %>
+                        Hi,<span id="userCurrent"><%= user.local.first_name %>&nbsp;<%= user.local.last_name %> </span>
+                        <% } %>
+                    </li>
+                    <li>
+                        <a href="/logout" class="btn btn-default btn-sm red">Logout</a>
+                    </li>
+                </ul>
+                
+                <a href="#" data-activates="nav-mobile" class="button-collapse"></a>
+            </div>
+        </nav>
+
+<!--Select Category from the drop down menu-->
+<select name="category" id="category">
+
+<option value="Grocery store">Grocery store</option>
+<option value="Active Life">Active Life</option>
+<option value="Night Life">Night Life</option>
+
+</select>
+       
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <br><br>
+                <h1 class="header center red-text">Explore Nearby Places.</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">Share your Experience</h5>
+                                
+
+<span>Location:</span>
+    <input type="text" id="txtPlaces" name ="txtPlaces" style="width: 250px" placeholder="Enter a location" />
+                </div>
+<br>
+                <div class="row center">
+                    <button onclick="select_category();" style="background:red" id="category_key" class="btn waves-effect waves-light red">Set Location</button>
+
+
+                    &nbsp;&nbsp;&nbsp;
+                    <div class="center-block" id="mapholder"></div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="section">
+                <ul data-bind='foreach: searchResults' class="collection">
+                    <div data-bind="attr: {class: $data.name}">
+                        <div data-bind="attr:{class: $data.id}">
+                            <li class="collection-item avatar">
+                                <img data-bind="attr:{src: $data.image_url}" alt="image" class="circle">
+                                <span data-bind="text: $data.name" class="title placeName"></span>
+                                <p data-bind="text: $data.location.display_address[0]"></p>
+                                <p data-bind="text: $data.location.display_address[1]"></p>
+                                <h6 data-bind="text: $data.display_phone"></h6>
+                                <a data-bind="attr: {href: $data.newIDlink}" class="waves-effect waves-light btn-large orange lighten-2 modal-trigger"><i class="material-icons right">view_list</i>Check Reviews</a>
+                                
+                                <!-- Modal Structure -->
+                                <div data-bind="attr: {id: $data.newID}" class="modal bottom-sheet">
+                                    <div class="modal-content">
+                                        <h4 data-bind="text: $data.name">Reviews</h4>
+                                        <ul class="collection">
+                                            <!-- Reviews dynamically generated in this collection by get '/review' request in app.js -->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a  data-bind="attr: {id: $data.phone}" onclick="clicked(this);" class="waves-effect waves-light btn-large light-blue lighten-1"><i class="material-icons right">speaker_notes</i>Post Reviews</a>
+                                <a class="waves-effect waves-light btn-large green lighten-1"><i class="material-icons">thumb_up</i></a>
+                                <a class="waves-effect waves-light btn-large red lighten-1"><i class="material-icons">thumb_down</i></a>
+                                <!-- This section is hidden until user clicks Post Review -->
+                                <div data-bind="attr: {class: $data.phone}">
+                                    <div class="row userReview">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <textarea data-bind="attr: {id: $data.display_phone} " name="written" class="materialize-textarea" length="300"></textarea>
+                                                <label data-bind="attr: {for: $data.display_phone }">Say Something about Place..!</label>
+                                            </div>
+                                        </div>
+                                        <div class="row center">
+                                            <button onclick="submitClicked(this);" data-bind="attr: {id: $data.id}" class="btn waves-effect waves-light light-blue lighten-1">Submit<i class="material-icons right">send</i></button><br>
+                                        </div>
+                                    </div>
+                                    <div class="row center">
+                                        <h4 class="submitResult"></h4>
+                                    </div>
+                                </div>
+                                <!-- End of Hidden Section -->
+                                <div class="progress" style="height:30px; width:72%">
+                                    <div class="determinate" style="width: 70%; background-color:#4caf50"></div>
+                                </div>
+                                
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <br><br>
+            <div class="section"></div>
+        </div>
+        
+        <footer class="page-footer">
+            <div align="center" class="container">
+                © 2016 Explore Places.
+            </div>
+        </footer>
+        
+        <!-- Scripts -->
+       
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/app.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCWXsgSGSoxUKpIC-zWmm7e8p-jY6EV6lw"></script>
+    <script type="text/javascript">
+        google.maps.event.addDomListener(window, 'load', function () {
+            var places = new google.maps.places.Autocomplete(document.getElementById('txtPlaces'));
+            google.maps.event.addListener(places, 'place_changed', function () {
+                var place = places.getPlace();
+                var address = place.formatted_address;
+                var latitude = place.geometry.location.lat();
+                var longitude = place.geometry.location.lng();
+                var mesg = "Address: " + address;
+                mesg += "\nLatitude: " + latitude;
+                mesg += "\nLongitude: " + longitude;
+                //alert(mesg);
+            });
+        });
+    </script>
+    </body>
+</html>

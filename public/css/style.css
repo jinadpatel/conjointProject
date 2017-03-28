@@ -1,0 +1,158 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+body {
+    min-height: 100vh;
+    flex-direction: column;
+    color: #888;
+    }
+#brand {
+	font-size: 22px;
+    font-weight: 300;
+    color:greenyellow;
+    line-height: 30px;
+}
+
+.modal{
+
+    padding: 60px 0 60px 0;
+    margin-top: 35px;
+    width:30%;
+}
+
+#modal-signup {
+
+    padding: 0;
+    margin:0;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.first{
+
+    background-size: 120%;
+    height: 40em;
+    color: black;
+    padding-top: 5em;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+#mapholder {
+    margin-top: 2em;
+}
+
+/*
+.waves-effect.waves-blue .waves-ripple {
+      background-color: rgba(41, 182, 246, 1.0);
+}
+*/
+
+textarea{
+        height: auto;
+        resize: none;
+        font-size: 1.3em;
+}
+
+footer.page-footer{
+    background-color: DarkSalmon;
+    height: 4em;
+    margin-top: 0;
+    color: #FFF;
+}
+
+nav div{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.card{
+    padding: 1em 1em 1em 1em;
+}
+
+#maph {
+height: 60%;
+width: 50%;
+}
+
+.controls {
+background-color: #fff;
+border-radius: 2px;
+border: 1px solid transparent;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+box-sizing: border-box;
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
+height: 29px;
+margin-left: 17px;
+margin-top: 10px;
+outline: none;
+padding: 0 11px 0 13px;
+text-overflow: ellipsis;
+width: 400px;
+}
+
+.controls:focus {
+border-color: #4d90fe;
+}
+
+
+.form-top {
+	overflow: hidden;
+	padding: 0 25px 15px 25px;
+	background: #444;
+	background: rgba(0, 0, 0, 0.35);
+	-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
+	text-align: left;
+}
+
+.form-top-left {
+	float: left;
+	width: 75%;
+	padding-top: 25px;
+}
+
+.form-top-left h3 { margin-top: 0; color: #fff; }
+.form-top-left p { opacity: 0.8; color: #fff; }
+
+.form-top-right {
+	float: left;
+	width: 25%;
+	padding-top: 5px;
+	font-size: 66px;
+	color: #fff;
+	line-height: 100px;
+	text-align: right;
+	opacity: 0.3;
+}
+
+.form-bottom {
+	padding: 25px 25px 30px 25px;
+	background: #444;
+	background: rgba(0, 0, 0, 0.3);
+	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+	text-align: left;
+}
+.form-bottom form textarea {
+	height: 100px;
+}
+
+#btn {
+	width: 100%;
+}
+
+
+

@@ -1,0 +1,44 @@
+{
+  "name": "conjoint",
+  "version": "1.0.0",
+  "description": "The web site where you can find nearby places for nightlife, grocerry and activelife. You can see and post reviews. This project is called Conjoint",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "binaryjs": "^0.2.1",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.2",
+    "express-session": "^1.14.1",
+    "flash": "^1.1.0",
+    "gridfs-stream": "^1.1.1",
+    "html": "^0.0.10",
+    "mongoose": "^4.6.4",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.0",
+    "node": "^0.0.0",
+    "passport": "^0.3.2",
+    "path": "^0.12.7",
+    "passport-local": "^1.0.0",
+    "socket.io": "^1.4.5",
+    "socket.io-stream": "^0.9.0",
+    "video-thumb": "^0.0.3",
+    "yelp": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Conjoint/Review-Sharing-Website.git"
+  },
+  "author": "conjointteam\u001b[D\u001b[D\u001b[D\u001b[\u001b[C\u001b[C\u001b[C\u001bteam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Conjoint/Review-Sharing-Website/issues"
+  },
+  "homepage": "https://github.com/Conjoint/Review-Sharing-Website#readme"
+}
