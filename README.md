@@ -1,9 +1,7 @@
 # Review-Sharing-Website
 Project 2 : CONJOINT (Combined action or effort by a group of people working mutually towards a specific task)
 
-Submission by (Team/Captain): Rohit Singh
-
-Group Members: Adithya Jayaprakash, Rohit Singh, Shravan Kiran, Jinad Patel, Vivek Tiwari and Hirava Savani.
+Submission by (Team/Captain): Jinad Patel
 
 # Project Summary
 This is a Single Page Web application implemented using HTML, CSS, JavaScript, Node.js and MongoDB.
@@ -27,6 +25,3 @@ Step 5:Navigate to localhost:8080 through your favorite browser
 # Running the project on Heroku
 Goto the link https://conjointreview.herokuapp.com on your browser and start exploring new places.
 Project is successfully uploaded to heroku.
-
-
-
